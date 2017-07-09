@@ -6,16 +6,19 @@ import json
 config = None
 db = None
 
+
 def _load_config():
     global config
     config = ConfigParser.RawConfigParser()
     config.read('db/db.cfg')
+
 
 def _get_config(key):
     section = 'connection'
     if config is None:
         _load_config()
     return config.get(section, key)
+
 
 def _connect():
     global db
@@ -24,9 +27,11 @@ def _connect():
                        passwd=_get_config('password'),
                        db=_get_config('dbname'))
 
+
 def _cur_to_dict(cursor):
     desc = cursor.description
     return [dict(itertools.izip([col[0] for col in desc], row)) for row in cursor.fetchall()]
+
 
 def query(sql):
     if db is None:
@@ -39,6 +44,3 @@ def query(sql):
     print("Content-Type: application/json")
     print("")
     print(json.dumps(results))
-
-
-

@@ -1,7 +1,8 @@
 import React from 'react';
-import Button from './Button'
-import styleConstants from '../styleConstants'
-import StatusChip from '../components/StatusChip'
+import Button from './Button';
+import styleConstants from '../styleConstants';
+import StatusChip from '../components/StatusChip';
+import PhotoCount from '../components/PhotoCount';
 
 const cardStyle = {
     border: '1px solid',
@@ -16,8 +17,13 @@ const imgStyle = {
     borderColor: styleConstants.colors.lightGrey
 };
 
+const detailsBarStyle={
+    display: 'flex',
+    justifyContent: 'space-between'
+};
+
 const descriptionStyle = {
-  padding: '0 25px'
+    padding: '0 25px'
 };
 
 const ItemCard = ({item}) =>  {
@@ -26,9 +32,11 @@ const ItemCard = ({item}) =>  {
             <img style={imgStyle} src={process.env.PUBLIC_URL + '/images/' + item.thumbnail}/>
             <div style={descriptionStyle}>
                 <h3>{item.name}</h3>
-                {/*<p>{item.description}</p>*/}
-                <Button>Claim it</Button>
-                <StatusChip claimed={item.bids.length > 0}/>
+                <div style={detailsBarStyle}>
+                    <PhotoCount count={item.images.length}/>
+                    <Button>Claim it</Button>
+                    <StatusChip claimed={item.bids.length > 0}/>
+                </div>
             </div>
         </div>
     )

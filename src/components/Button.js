@@ -4,7 +4,7 @@ import Color from 'color';
 
 import styleConstants from '../styleConstants'
 
-const Button = ({text, primary}) => {
+const Button = ({primary, children}) => {
 
     let styles = {
         base: {
@@ -30,7 +30,7 @@ const Button = ({text, primary}) => {
 
     };
 
-    return (<button style={[styles.base, primary && styles.primary]}>{text}</button>)
+    return (<button style={[styles.base, primary && styles.primary]}>{children}</button>)
 };
 
 export default Radium(Button)

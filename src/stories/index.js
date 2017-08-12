@@ -8,10 +8,10 @@ import Button from '../components/Button';
 
 storiesOf('Button', module)
     .add('primary', () => (
-        <Button text="Button text" primary="true"/>
+        <Button primary>Button text</Button>
     ))
     .add('secondary', () => (
-        <Button text="Button text"/>
+        <Button>Button text</Button>
     ));
 
 storiesOf('StatusChip', module)

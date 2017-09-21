@@ -38,6 +38,7 @@ def query(sql):
         _connect()
     cur = db.cursor()
     cur.execute(sql)
+    db.commit()
     return _cur_to_dict(cur)
 
 

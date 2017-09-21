@@ -38,9 +38,11 @@ def query(sql):
         _connect()
     cur = db.cursor()
     cur.execute(sql)
-    results = _cur_to_dict(cur)
+    return _cur_to_dict(cur)
 
+
+def output_to_cgi(query_result):
     # Output to CGI
     print("Content-Type: application/json")
     print("")
-    print(json.dumps(results))
+    print(json.dumps(query_result))

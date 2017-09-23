@@ -29,7 +29,9 @@ const descriptionStyle = {
 const ItemCard = ({item}) =>  {
     return (
         <div style={cardStyle}>
-            <img style={imgStyle} src={process.env.PUBLIC_URL + '/images/' + item.thumbnail}/>
+            <img style={imgStyle}
+                 src={process.env.PUBLIC_URL + '/images/' + item.images[0].thumbnailFilename}
+                 alt={item.images[0].thumbnailFilename}/>
             <div style={descriptionStyle}>
                 <h3>{item.name}</h3>
                 <div style={detailsBarStyle}>

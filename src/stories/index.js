@@ -5,6 +5,7 @@ import ItemCard from '../components/ItemCard';
 import StatusChip from '../components/StatusChip';
 import PhotoCount from '../components/PhotoCount';
 import Button from '../components/Button';
+import ItemList from '../components/ItemList';
 
 storiesOf('Button', module)
     .add('primary', () => (
@@ -43,4 +44,10 @@ storiesOf('ItemCard', module)
 
         };
         return (<ItemCard item={item}/>)
+    });
+
+
+storiesOf('ItemList', module)
+    .add('default', () => {
+        return (<ItemList/>)
     });

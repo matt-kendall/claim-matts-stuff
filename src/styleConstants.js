@@ -6,7 +6,9 @@ const styleConstants = {
         green: '#167116',
         red: '#c11111',
         lightGrey: '#c1c1c1',
-        darkGrey: '#a7a7a7'
+        mediumGrey: '#858b8c',
+        darkGrey: '#444',
+        nearBlack: '#121212'
     }
 };
 

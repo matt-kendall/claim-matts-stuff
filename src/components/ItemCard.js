@@ -7,38 +7,34 @@ import PhotoCount from '../components/PhotoCount';
 import {Link} from 'react-router-dom';
 
 const cardStyle = {
-    backgroundColor: '#2F2F36', // TODO add to constants
+    backgroundColor: styleConstants.colors.darkerGrey,
     borderRadius: 5,
-    padding: 8,
-    maxWidth: 400,
-    display: 'inline-block'
+    width: '100%',
+    display: 'inline-block',
 };
 
 const imgStyle = {
-    width: 400,
-    height: 220,
+    paddingBottom: '56.25%',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: '50%, 50%'
-    // borderBottom: '1px solid',
-    // borderColor: styleConstants.colors.lightGrey
-};  
+    backgroundPosition: '50%, 50%',
+    margin: 10
+};
 
 const descriptionStyle = {
-    padding: '10px 12px',
+    margin: '18px 18px 12px',
     color: '#b2c0c1',
     fontFamily: 'Montserrat',
     fontWeight: 400,
-    fontSize: 14
+    fontSize: 14,
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden'
 };
 
 const linkStyle = {
     textDecoration: 'none',
     color: 'inherit'
-}
-
-const countStyle = {
-
 }
 
 const ItemCard = ({item}) =>  {
@@ -51,12 +47,8 @@ const ItemCard = ({item}) =>  {
         <Link to={`/i/${item.id}`} style={linkStyle}>
             <div style={cardStyle}>
                 <div className="img" style={[imgStyle, imageSrc]}></div>
-                <div style={descriptionStyle}>
-                    <span>{item.name}</span>
-                </div>
-                <div style={countStyle}>
-                    <PhotoCount count={item.images.length}/>
-                </div>
+                <div style={descriptionStyle}>{item.name}</div>
+                <PhotoCount count={item.images.length}/>
             </div>
         </Link>
     )

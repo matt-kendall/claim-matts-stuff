@@ -106,10 +106,14 @@ storiesOf('PhotoCount', module)
 storiesOf('ItemCard', module)
     .addDecorator(StoryRouter())
     .add('with landscape photo', () => {
-        return (<ItemCard item={item}/>)
+        return (<div style={{width: 500}}><ItemCard item={item}/></div>)
     })
     .add('with portrait photo', () => {
-        return (<ItemCard item={item2}/>)
+        return (<div style={{width: 500}}><ItemCard item={item2}/></div>)
+    })
+    .add('with text too long for size', () => {
+        item.name = 'This name is too long to fit on a smaller card';
+        return (<div style={{width: 250}}><ItemCard item={item}/></div>)
     });
 
 storiesOf('ItemDetail', module)

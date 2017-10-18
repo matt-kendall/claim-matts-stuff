@@ -8,7 +8,8 @@ const styleConstants = {
         lightGrey: '#c1c1c1',
         mediumGrey: '#858b8c',
         darkGrey: '#444',
-        nearBlack: '#121212'
+        darkerGrey: '#2F2F36',
+        nearBlack: '#161619'
     }
 };
 

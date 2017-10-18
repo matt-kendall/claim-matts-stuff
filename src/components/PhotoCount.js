@@ -4,7 +4,7 @@ import styleConstants from "../styleConstants";
 
 let styles = {
     containerStyle: {
-        margin: "0 10px",
+        margin: "12px 18px",
         color: styleConstants.colors.mediumGrey
     },
     countStyle: {

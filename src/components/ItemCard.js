@@ -18,7 +18,8 @@ const imgStyle = {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: '50%, 50%',
-    margin: 10
+    margin: 10,
+    position: 'relative'
 };
 
 const descriptionStyle = {
@@ -29,7 +30,7 @@ const descriptionStyle = {
     fontSize: 14,
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-    overflow: 'hidden'
+    overflow: 'hidden',
 };
 
 const linkStyle = {
@@ -39,8 +40,16 @@ const linkStyle = {
 
 const ItemCard = ({item}) =>  {
 
-    const imageSrc = {
-        backgroundImage: `url("${process.env.PUBLIC_URL}/images/${item.images[0].thumbnailFilename}")`
+    let imageSrc;
+    if (item.images[0]) {
+        imageSrc = {
+            backgroundImage: `url("${process.env.PUBLIC_URL}/images/${item.images[0].thumbnailFilename}")`
+        }
+    } else {
+        imageSrc = {
+            backgroundImage: `url("${process.env.PUBLIC_URL}/images/no-image.png")`,
+            backgroundColor: styleConstants.colors.darkGrey
+        }
     }
 
     return (

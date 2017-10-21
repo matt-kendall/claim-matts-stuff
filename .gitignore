@@ -12,6 +12,9 @@
 # Intellij files
 **/.idea
 
+# Images
+public/images/*.jpg
+
 # misc
 .DS_Store
 .env.local

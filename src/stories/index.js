@@ -77,6 +77,21 @@ let item2 = {
     ]
 };
 
+let itemWithNameTooLong = {
+    name: 'This name is too long to fit on a smaller card',
+    bids: [],
+    images: [{
+        filename: 'IMG_20170521_115011092.jpg',
+        thumbnailFilename: 'IMG_20170521_115011092-thumb.jpg'
+    }]
+}
+
+let itemWithNoImage = {
+    name: 'Item has no image',
+    bids: [],
+    images: []
+}
+
 const items = [item, item2];
 
 storiesOf('Button', module)
@@ -112,8 +127,10 @@ storiesOf('ItemCard', module)
         return (<div style={{width: 500}}><ItemCard item={item2}/></div>)
     })
     .add('with text too long for size', () => {
-        item.name = 'This name is too long to fit on a smaller card';
-        return (<div style={{width: 250}}><ItemCard item={item}/></div>)
+        return (<div style={{width: 250}}><ItemCard item={itemWithNameTooLong}/></div>)
+    })
+    .add('with no image', () => {
+        return (<div style={{width: 500}}><ItemCard item={itemWithNoImage}/></div>)
     });
 
 storiesOf('ItemDetail', module)
